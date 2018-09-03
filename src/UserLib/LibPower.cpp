@@ -167,28 +167,35 @@ void EXTI9_5_IRQHandler(void) {
 
 	// set senser to inch unit
 	if (EXTI_GetITStatus(EXTI_Line7) != RESET) {
-		if (libPower.FlagIsON) {
-			libSenser.UnitConvery();
+		uTick.mWait(100);
+		if (GPIO_ReadInputDataBit(GPIOB, Key2) == RESET) {
+			if (libPower.FlagIsON) {
+				libSenser.UnitConvery();
+			}
 		}
 		EXTI_ClearITPendingBit(EXTI_Line7);
 	}
+
 	// set senser to another senser
 	if (EXTI_GetITStatus(EXTI_Line8) != RESET) {
-		if (libPower.FlagIsON) {
-			libSenser.ChangeSenser();
-
+		uTick.mWait(100);
+		if (GPIO_ReadInputDataBit(GPIOB, Key3) == RESET) {
+			if (libPower.FlagIsON) {
+				libSenser.ChangeSenser();
+			}
 		}
 		EXTI_ClearITPendingBit(EXTI_Line8);
 	}
 	// set offset to zero
 	if (EXTI_GetITStatus(EXTI_Line9) != RESET) {
-		if (libPower.FlagIsON) {
-			libSenser.SetLengthOffset();
-
+		uTick.mWait(100);
+		if (GPIO_ReadInputDataBit(GPIOB, Key4) == RESET) {
+			if (libPower.FlagIsON) {
+				libSenser.SetLengthOffset();
+			}
 		}
 		EXTI_ClearITPendingBit(EXTI_Line9);
 	}
-
 }
 }
 
@@ -215,9 +222,15 @@ void LibPower::updateBatInfo() {
 		{
 			ili9341.LCD_ShowBattery(280, 82, 0xFFFF, 23);
 		}
-		if (CurrentBatLevel <= 0)
+		if (CurrentBatLevel <= 0 && CurrentBatLevel >= -1)
 		{
 			ili9341.LCD_ShowBattery(280, 82, 0xFF00, 0);
+		}
+		// Power Low Auto off
+		if (CurrentBatLevel < -1 && !(FlagChFsh || FlagCharge))
+		{
+			GPIO_ResetBits(GPIOB, PwrON);
+			//ili9341.LCD_ShowBattery(280, 82, 0xFF00, 0);
 		}
 		LastBatLevel = CurrentBatLevel;
 	}

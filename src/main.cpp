@@ -44,6 +44,7 @@
 
 int main(void) {
 	uTick.Init();
+	libUSB.Init();
 	libPower.InitPower();
 	uint32_t ttt[3];
 	libUtil.GetMcuUUID(ttt);
@@ -72,6 +73,7 @@ int main(void) {
 
 	while (1) {
 		libPower.updateBatInfo();
+		libUSB.ReflushReceiveData();
 
 		// get if is power on or off charging
 		if (libPower.FlagIsON) {
