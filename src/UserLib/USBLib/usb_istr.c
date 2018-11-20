@@ -110,6 +110,7 @@ void USB_Istr(void)
     /* servicing of the endpoint correct transfer interrupt */
     /* clear of the CTR flag into the sub */
     CTR_LP();
+
 #ifdef CTR_CALLBACK
     CTR_Callback();
 #endif

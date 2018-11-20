@@ -78,8 +78,8 @@ int main(void) {
 		// get if is power on or off charging
 		if (libPower.FlagIsON) {
 			double tempReal;
+			uint16_t adcValue;
 			uint8_t errorCode;
-
 			// show senser lable
 			if (!libPower.FlagLastIsON)
 			{
@@ -88,26 +88,38 @@ int main(void) {
 			}
 			// update show Senser info
 			libSenser.UpdateSenserLable();
+
+
 			// get if senser is in right instance
-			if (!libSenser.GetSenserValue(&tempReal, &errorCode)) {
+			if (!libSenser.GetSenserValue(&tempReal, &adcValue, &errorCode)) {
 				if (errorCode == 0) {
 					ili9341.LCD_ShowString(50, 120, 0xFFFF,
 							(uint8_t*) "Too Near  ");
+
+					libUSB.PrintData(adcValue, (uint8_t*)"Too Near\r\n");
+					//libUSB.PrintData((uint8_t*) "Too Near\r\n");
+					//libUSB.PrintData(adcValue);
 					continue;
 					// too near
 				} else if (errorCode == 1) {
 					// too far
 					ili9341.LCD_ShowString(50, 120, 0xFFFF,
 							(uint8_t*) "Too  Far  ");
+					libUSB.PrintData(adcValue, (uint8_t*)"Too Far\r\n");
+					//libUSB.PrintData((uint8_t*) "Too Far\r\n");
+					//libUSB.PrintData(adcValue);
 					continue;
 				}
 			} else {
 				if (!libSenser.Is_Inch) {
 					ili9341.LCD_ShowFloat(50, 120, 0xFFFF, 3, tempReal);
-					ili9341.LCD_ShowString(194, 120, 0xFFFF, (uint8_t *) "  mm");
+					ili9341.LCD_ShowString(192, 120, 0xFFFF, (uint8_t *) "  mm");
+					libUSB.PrintData(adcValue, tempReal);
+
 				} else {
 					ili9341.LCD_ShowFloat(50, 120, 0xFFFF, 5, tempReal);
 					ili9341.LCD_ShowString(242, 120, 0xFFFF, (uint8_t *) "in");
+					libUSB.PrintData(adcValue, tempReal);
 				}
 			}
 		}

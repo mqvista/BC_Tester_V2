@@ -16,6 +16,7 @@ LibSenser libSenser;
 LibFlash libFlash;
 LibUtil libUtil;
 LibUSB libUSB;
+LibComm libComm;
 
 
 

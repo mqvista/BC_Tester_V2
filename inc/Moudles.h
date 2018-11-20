@@ -15,6 +15,7 @@
 #include "UserLib/LibFlash.h"
 #include "UserLib/LibUtil.h"
 #include "LibUSB.h"
+#include "UserLib/LibComm.h"
 
 extern ILI9341 ili9341;
 extern LibADC libADC;
@@ -23,6 +24,7 @@ extern LibSenser libSenser;
 extern LibFlash libFlash;
 extern LibUtil libUtil;
 extern LibUSB libUSB;
+extern LibComm libComm;
 
 
 #endif /* MOUDLES_H_ */

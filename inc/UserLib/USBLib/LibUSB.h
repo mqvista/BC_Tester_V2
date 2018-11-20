@@ -19,6 +19,13 @@ public:
 	LibUSB();
 	void Init();
 	void ReflushReceiveData();
+	void PrintData(double data);
+	void PrintData(uint16_t data);
+	void PrintData(uint8_t* data);
+	void PrintData(uint16_t adValue, double relValue);
+	void PrintData(uint16_t adValue, uint8_t* string);
+	bool ctrFlag;
 };
+
 
 #endif /* INC_USERLIB_USBLIB_LIBUSB_H_ */

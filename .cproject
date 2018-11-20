@@ -29,6 +29,7 @@
 								<option id="com.atollic.truestudio.as.symbols.defined.1466725012" name="Defined symbols" superClass="com.atollic.truestudio.as.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F10X_MD"/>
 									<listOptionValue builtIn="false" value="USE_STDPERIPH_DRIVER"/>
+									<listOptionValue builtIn="false" value="CTR_CALLBACK"/>
 								</option>
 								<option id="com.atollic.truestudio.as.general.incpath.912257141" name="Include path" superClass="com.atollic.truestudio.as.general.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src"/>
@@ -80,6 +81,7 @@
 								<option id="com.atollic.truestudio.gpp.symbols.defined.1071471266" name="Defined symbols" superClass="com.atollic.truestudio.gpp.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F10X_MD"/>
 									<listOptionValue builtIn="false" value="USE_STDPERIPH_DRIVER"/>
+									<listOptionValue builtIn="false" value="CTR_CALLBACK"/>
 								</option>
 								<option id="com.atollic.truestudio.gpp.directories.select.1543342941" name="Include path" superClass="com.atollic.truestudio.gpp.directories.select" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src"/>
@@ -121,7 +123,7 @@
 							</tool>
 							<tool id="com.atollic.truestudio.ar.base.62283288" name="Archiver" superClass="com.atollic.truestudio.ar.base"/>
 							<tool id="com.atollic.truestudio.exe.debug.toolchain.secoutput.1664294559" name="Other" superClass="com.atollic.truestudio.exe.debug.toolchain.secoutput">
-								<option id="com.atollic.truestudio.secoutput.general.convert.249000483" superClass="com.atollic.truestudio.secoutput.general.convert" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.atollic.truestudio.secoutput.general.convert.249000483" name="Convert build output" superClass="com.atollic.truestudio.secoutput.general.convert" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
@@ -280,6 +282,7 @@
 								<option id="com.atollic.truestudio.as.symbols.defined.1510278106" name="Defined symbols" superClass="com.atollic.truestudio.as.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F10X_MD"/>
 									<listOptionValue builtIn="false" value="USE_STDPERIPH_DRIVER"/>
+									<listOptionValue builtIn="false" value="CTR_CALLBACK"/>
 								</option>
 								<option id="com.atollic.truestudio.as.general.incpath.1698192426" name="Include path" superClass="com.atollic.truestudio.as.general.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src"/>
@@ -296,6 +299,7 @@
 								<option id="com.atollic.truestudio.gcc.symbols.defined.1525260197" name="Defined symbols" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F10X_MD"/>
 									<listOptionValue builtIn="false" value="USE_STDPERIPH_DRIVER"/>
+									<listOptionValue builtIn="false" value="CTR_CALLBACK"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.directories.select.1215218014" name="Include path" superClass="com.atollic.truestudio.gcc.directories.select" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src"/>
@@ -329,6 +333,7 @@
 								<option id="com.atollic.truestudio.gpp.symbols.defined.35824547" name="Defined symbols" superClass="com.atollic.truestudio.gpp.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32F10X_MD"/>
 									<listOptionValue builtIn="false" value="USE_STDPERIPH_DRIVER"/>
+									<listOptionValue builtIn="false" value="CTR_CALLBACK"/>
 								</option>
 								<option id="com.atollic.truestudio.gpp.directories.select.500204538" name="Include path" superClass="com.atollic.truestudio.gpp.directories.select" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src"/>

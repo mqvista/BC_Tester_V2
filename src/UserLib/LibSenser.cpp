@@ -29,20 +29,23 @@ LibSenser::LibSenser() {
 	Is_Inch = false;
 }
 
-bool LibSenser::GetSenserValue(double* length, uint8_t* errorNum) {
+bool LibSenser::GetSenserValue(double* length, uint16_t* adcValue, uint8_t* errorNum) {
 	uint16_t tempSenser = libADC.ADSenser[0];
 	if (currentSenser == 1) {
 		if (tempSenser < Senser1.MN) {
 			length = 0;
 			*errorNum = 0;
+			*adcValue = tempSenser;
 			return false;
 		} else if (tempSenser > Senser1.MX) {
 			length = 0;
 			*errorNum = 1;
+			*adcValue = tempSenser;
 			return false;
 		} else {
 			*length = (Senser1.CA * (tempSenser - Senser1.MN) + Senser1.CB - m_OffsetValue) / 1000 * m_InchCoefficient;
 			errorNum = 0;
+			*adcValue = tempSenser;
 			return true;
 		}
 	}
@@ -50,14 +53,17 @@ bool LibSenser::GetSenserValue(double* length, uint8_t* errorNum) {
 		if (tempSenser < Senser2.MN) {
 			length = 0;
 			errorNum = 0;
+			*adcValue = tempSenser;
 			return false;
 		} else if (tempSenser > Senser2.MX) {
 			length = 0;
 			*errorNum = 1;
+			*adcValue = tempSenser;
 			return false;
 		} else {
 			*length = (Senser2.CA * (tempSenser - Senser2.MN) + Senser2.CB - m_OffsetValue) * m_InchCoefficient;
 			errorNum = 0;
+			*adcValue = tempSenser;
 			return true;
 		}
 	}

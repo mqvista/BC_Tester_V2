@@ -12,7 +12,7 @@
 class LibSenser {
 public:
 	LibSenser();
-	bool GetSenserValue(double* length, uint8_t* errorNum);
+	bool GetSenserValue(double* length, uint16_t* adcValue, uint8_t* errorNum);
 	uint8_t lastSenser;
 	uint8_t currentSenser;
 	void SetLengthOffset();
